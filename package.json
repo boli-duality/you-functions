@@ -1,6 +1,6 @@
 {
   "name": "you-functions",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "通用的工具函数",
   "main": "index.js",
   "scripts": {
@@ -13,5 +13,9 @@
     "functions"
   ],
   "author": "boli",
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/boli-duality/you-functions.git"
+  }
 }
