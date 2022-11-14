@@ -1,6 +1,6 @@
 {
   "name": "you-functions",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "通用的工具函数",
   "main": "dist/index.umd.js",
   "module": "dist/index.es.js",
