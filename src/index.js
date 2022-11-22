@@ -22,10 +22,10 @@ Math.rad = v => (v * Math.PI) / 180
  * @param {Any} data 需要判断类型的数据
  * @returns {String} 数据类型
  */
-export const datatype = data => Object.prototype.toString.call(data).slice(8, -1).toLowerCase()
+export const types = data => Object.prototype.toString.call(data).slice(8, -1).toLowerCase()
 
 // 判断是否是对象类型
-export const isObj = data => datatype(data) === 'object'
+export const isObj = data => types(data) === 'object'
 
 /**
  * 首字母大写
