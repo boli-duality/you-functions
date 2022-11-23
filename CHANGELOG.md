@@ -1,3 +1,12 @@
+## [1.0.18](https://github.com/boli-duality/you-functions/compare/v1.0.17...v1.0.18) (2022-11-23)
+
+
+### ✨ Features | 新功能
+
+* 新增数组去重方法 ([91e2d18](https://github.com/boli-duality/you-functions/commit/91e2d18))
+
+
+
 ## [1.0.17](https://github.com/boli-duality/you-functions/compare/v1.0.16...v1.0.17) (2022-11-23)
 
 
