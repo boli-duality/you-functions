@@ -1,6 +1,11 @@
 ## [1.0.12](https://github.com/boli-duality/you-functions/compare/v1.0.13...v1.0.12) (2022-11-23)
 
 
+### Chores
+
+* 🤖 test ([a7ff669](https://github.com/boli-duality/you-functions/commit/a7ff669))
+
+
 ### Styles
 
 * 设置changolog风格 ([2220f33](https://github.com/boli-duality/you-functions/commit/2220f33))

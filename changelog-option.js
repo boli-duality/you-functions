@@ -32,7 +32,7 @@ module.exports = {
         commit.type = '👷‍ Build System | 构建'
       } else if (commit.type === 'ci') {
         commit.type = '🔧 Continuous Integration | CI 配置'
-      } else if (commit.type === 'chores') {
+      } else if (commit.type === 'chore') {
         commit.type = '🎫 Chores | 其他更新'
       }
 
