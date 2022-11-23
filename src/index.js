@@ -1,21 +1,19 @@
 import initDebounce from './initDebounce' // 初始化debounce
 import initThrottle from './initThrottle' // 初始化throttle
 
-// 原生js扩展 ↓↓
 /**
  * JSON深拷贝
  * @param {Object} obj 需要深拷贝的对象
  * @returns {Object}   JSON深拷贝后的新对象
  */
-JSON.copy = obj => JSON.parse(JSON.stringify(obj))
+export const copy = obj => JSON.parse(JSON.stringify(obj))
 
 /**
  * 将角度转换成弧度
  * @param {Number|String} v 角度
  * @returns 弧度
  */
-Math.rad = v => (v * Math.PI) / 180
-// 原生js扩展 ↑↑
+export const rad = v => (v * Math.PI) / 180
 
 /**
  * 判断数据类型
