@@ -1,6 +1,7 @@
 src/
 .husky/
-changelog-option.js
+changelog-config.js
+commitlint.config.js
 pnpm-lock.yaml
 rollup.config.js
 .npmrc

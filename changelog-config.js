@@ -3,7 +3,7 @@ const compareFunc = require('compare-func')
 module.exports = {
   writerOpts: {
     transform: (commit, context) => {
-      let discard = true
+      let discard = false
       const issues = []
 
       commit.notes.forEach(note => {
@@ -18,12 +18,11 @@ module.exports = {
         commit.type = '⚡ Performance Improvements | 性能优化'
       } else if (commit.type === 'revert' || commit.revert) {
         commit.type = '⏪ Reverts | 回退'
-      } else if (discard) {
-        return
-      } else if (commit.type === 'docs') {
+      } else if (discard) return
+      else if (commit.type === 'docs') {
         commit.type = '📝 Documentation | 文档'
       } else if (commit.type === 'style') {
-        commit.type = '💎 Styles | 风格'
+        commit.type = '💄 Styles | 风格'
       } else if (commit.type === 'refactor') {
         commit.type = '♻️ Code Refactoring | 代码重构'
       } else if (commit.type === 'test') {
