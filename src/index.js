@@ -278,12 +278,12 @@ export class Enum {
 }
 
 /**
- *
+ * 从一个对象中提取需要的属性返回一个新对象
  * @param {Object} obj 源对象
  * @param {Array} keys 需要获取的属性的key
  * @returns
  */
-export const createWith = (obj, keys) => {
+export const pick = (obj, keys) => {
   let o = {}
   keys.forEach(k => (o[k] = obj[k]))
   return o
