@@ -1,14 +1,14 @@
 {
   "name": "you-functions",
-  "version": "1.0.13",
+  "version": "1.0.12",
   "description": "通用的工具函数",
   "main": "./dist/index.js",
   "module": "./dist/index.js",
   "scripts": {
     "build": "rollup --config",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "changelog": "conventional-changelog -p custom-config -i CHANGELOG.md -s -n -r 0 && git add CHANGELOG.md",
-    "postchangelog": "git push --tags"
+    "changelog": "conventional-changelog -p custom-config -i CHANGELOG.md -s -r 0 -n ./changelog-option.js && git add CHANGELOG.md",
+    "postchangelogs": "git push --tags"
   },
   "keywords": [
     "you-functions",

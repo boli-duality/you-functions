@@ -23,16 +23,16 @@ module.exports = {
       } else if (commit.type === 'docs') {
         commit.type = '📝 Documentation | 文档'
       } else if (commit.type === 'style') {
-        commit.type = '💄 Styles | 风格'
+        commit.type = '💎 Styles | 风格'
       } else if (commit.type === 'refactor') {
-        commit.type = '♻ Code Refactoring | 代码重构'
+        commit.type = '♻️ Code Refactoring | 代码重构'
       } else if (commit.type === 'test') {
         commit.type = '✅ Tests | 测试'
       } else if (commit.type === 'build') {
         commit.type = '👷‍ Build System | 构建'
       } else if (commit.type === 'ci') {
         commit.type = '🔧 Continuous Integration | CI 配置'
-      } else if (commit.type === 'chore') {
+      } else if (commit.type === 'chores') {
         commit.type = '🎫 Chores | 其他更新'
       }
 

@@ -57,7 +57,7 @@ module.exports = {
           },
           refactor: {
             description: 'A code change that neither fixes a bug nor adds a feature',
-            title: 'Code Refactoring',
+            title: 'Code Refactorings',
             emoji: '📦',
           },
           perf: {
