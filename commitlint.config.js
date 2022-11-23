@@ -84,7 +84,7 @@ module.exports = {
             emoji: '⚙️',
           },
           chore: {
-            description: "Other changes that don't modify src or test files",
+            description: "Other changes that don't modify src or test files zhexegenbenmeoyong",
             title: 'Chores',
             emoji: '♻️',
           },

@@ -4,6 +4,7 @@
 ### Chores
 
 * 🤖 test ([a7ff669](https://github.com/boli-duality/you-functions/commit/a7ff669))
+* test ([a236a4e](https://github.com/boli-duality/you-functions/commit/a236a4e))
 
 
 ### Styles
