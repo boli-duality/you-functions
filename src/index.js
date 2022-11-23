@@ -77,16 +77,17 @@ export const distanceUnit = v => {
  */
 export const addUnit = (v, unit = 'rpx') => (isNaN(v) ? v : v + unit)
 
+export { default as initDebounce } from './initDebounce' // 初始化debounce
+export { default as initThrottle } from './initThrottle' // 初始化throttle
+
 /**
  * 防抖
  */
-export { default as initDebounce } from './initDebounce' // 初始化debounce
 export const debounce = initDebounce()
 
 /**
  * 节流
  */
-export { default as initThrottle } from './initThrottle' // 初始化throttle
 export const throttle = initThrottle()
 
 // 获取距离的一系列方法
@@ -450,17 +451,6 @@ export const getLocalStorageSize = () => {
   else if (size < 1073741824) size = (size / 1048576).toFixed(2) + 'MB'
   else size = (size / 1073741824).toFixed(2) + 'GB'
   return size
-}
-
-// 获取随机颜色
-const getRandomColor = () => {
-  const rgb = []
-  for (let i = 0; i < 3; ++i) {
-    let color = Math.floor(Math.random() * 256).toString(16)
-    color = color.length == 1 ? '0' + color : color
-    rgb.push(color)
-  }
-  return '#' + rgb.join('')
 }
 
 // 随机生成hex

@@ -7,7 +7,7 @@
   "scripts": {
     "build": "rollup --config",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "changelog": "conventional-changelog -p custom-config -i CHANGELOG.md -s -n ./changelog-option.js && git add CHANGELOG.md",
+    "changelog": "conventional-changelog -p custom-config -i CHANGELOG.md -s -n -r 0 && git add CHANGELOG.md",
     "postchangelog": "git push --tags"
   },
   "keywords": [
