@@ -1,6 +1,6 @@
 {
   "name": "you-functions",
-  "version": "1.0.16",
+  "version": "1.0.17",
   "description": "通用的工具函数",
   "main": "./dist/index.js",
   "module": "./dist/index.js",
