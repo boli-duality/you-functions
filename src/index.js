@@ -468,3 +468,8 @@ export const rgb = () => {
 // rgb转hex
 export const rgbToHex = (r, g, b) =>
   '#' + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1)
+
+/**
+ * 数组去重
+ */
+export const uniqueArr = arr => Array.from(new Set(arr))
