@@ -1,0 +1,8 @@
+src/
+.husky/
+changelog-option.js
+pnpm-lock.yaml
+rollup.config.js
+.npmrc
+.npmignore
+.gitignore

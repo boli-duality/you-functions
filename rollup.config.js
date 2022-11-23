@@ -1,10 +1,10 @@
-import { terser } from 'rollup-plugin-terser'
+// import { terser } from 'rollup-plugin-terser'
 
-export default {
+module.exports = {
   input: 'src/index.js',
   output: {
     file: 'dist/index.js',
     format: 'es',
-    plugins: [terser()],
+    // plugins: [terser()],
   },
 }
