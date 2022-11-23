@@ -1,3 +1,20 @@
+## [1.0.14](https://github.com/boli-duality/you-functions/compare/v1.0.13...v1.0.14) (2022-11-23)
+
+
+### 🎫 Chores | 其他更新
+
+* 🤖 test ([a7ff669](https://github.com/boli-duality/you-functions/commit/a7ff669))
+* 继续测试 ([0c2cabe](https://github.com/boli-duality/you-functions/commit/0c2cabe))
+* 自动生成changelog完成 ([7a2644c](https://github.com/boli-duality/you-functions/commit/7a2644c))
+* test ([a236a4e](https://github.com/boli-duality/you-functions/commit/a236a4e))
+
+
+### 💄 Styles | 风格
+
+* 设置changolog风格 ([2220f33](https://github.com/boli-duality/you-functions/commit/2220f33))
+
+
+
 ## [1.0.13](https://github.com/boli-duality/you-functions/compare/v1.0.13...v1.0.12) (2022-11-23)
 
 ### 🎫 Chores | 其他更新
