@@ -1,3 +1,13 @@
+## [1.0.19](https://github.com/boli-duality/you-functions/compare/v1.0.18...v1.0.19) (2022-11-23)
+
+
+### ♻️ Code Refactoring | 代码重构
+
+* 将JSON.copy和Math.rad静态方法修改为普通方法 ([f66c000](https://github.com/boli-duality/you-functions/commit/f66c000))
+* 修改脚本语句 ([f9d3bf1](https://github.com/boli-duality/you-functions/commit/f9d3bf1))
+
+
+
 ## [1.0.18](https://github.com/boli-duality/you-functions/compare/v1.0.17...v1.0.18) (2022-11-23)
 
 

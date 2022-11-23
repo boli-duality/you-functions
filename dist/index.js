@@ -69,21 +69,19 @@ function initThrottle({ delay = 500, immediate = true } = {}) {
   }
 }
 
-// 原生js扩展 ↓↓
 /**
  * JSON深拷贝
  * @param {Object} obj 需要深拷贝的对象
  * @returns {Object}   JSON深拷贝后的新对象
  */
-JSON.copy = obj => JSON.parse(JSON.stringify(obj));
+const copy = obj => JSON.parse(JSON.stringify(obj));
 
 /**
  * 将角度转换成弧度
  * @param {Number|String} v 角度
  * @returns 弧度
  */
-Math.rad = v => (v * Math.PI) / 180;
-// 原生js扩展 ↑↑
+const rad = v => (v * Math.PI) / 180;
 
 /**
  * 判断数据类型
@@ -539,4 +537,4 @@ const rgbToHex = (r, g, b) =>
  */
 const uniqueArr = arr => Array.from(new Set(arr));
 
-export { Distance, Enum, MySet, Urlquery, addUnit, arrayToMatrix, capitalize, chinesNum, debounce, distanceUnit, findIndexArr, getLocalStorageSize, getRandomInt, getRandomItem, html2txt, initDebounce, initThrottle, isObj, kebabcase2CamelCase, mergeStyle, pick, randomColor, removeItem, rgb, rgbToHex, roundNum, sleep, style2obj, throttle, types, uniqueArr };
+export { Distance, Enum, MySet, Urlquery, addUnit, arrayToMatrix, capitalize, chinesNum, copy, debounce, distanceUnit, findIndexArr, getLocalStorageSize, getRandomInt, getRandomItem, html2txt, initDebounce, initThrottle, isObj, kebabcase2CamelCase, mergeStyle, pick, rad, randomColor, removeItem, rgb, rgbToHex, roundNum, sleep, style2obj, throttle, types, uniqueArr };
