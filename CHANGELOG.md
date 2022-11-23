@@ -1,3 +1,12 @@
+## [1.0.15](https://github.com/boli-duality/you-functions/compare/v1.0.14...v1.0.15) (2022-11-23)
+
+
+### ♻️ Code Refactoring | 代码重构
+
+* 将createWith方法更名为pick ([0c57fc8](https://github.com/boli-duality/you-functions/commit/0c57fc8))
+
+
+
 ## [1.0.14](https://github.com/boli-duality/you-functions/compare/v1.0.13...v1.0.14) (2022-11-23)
 
 

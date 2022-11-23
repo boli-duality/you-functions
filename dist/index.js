@@ -343,12 +343,12 @@ class Enum {
 }
 
 /**
- *
+ * 从一个对象中提取需要的属性返回一个新对象
  * @param {Object} obj 源对象
  * @param {Array} keys 需要获取的属性的key
  * @returns
  */
-const createWith = (obj, keys) => {
+const pick = (obj, keys) => {
   let o = {};
   keys.forEach(k => (o[k] = obj[k]));
   return o
@@ -534,4 +534,4 @@ const rgb = () => {
 const rgbToHex = (r, g, b) =>
   '#' + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
 
-export { Distance, Enum, MySet, Urlquery, addUnit, arrayToMatrix, capitalize, chinesNum, createWith, debounce, distanceUnit, findIndexArr, getLocalStorageSize, getRandomInt, getRandomItem, html2txt, initDebounce, initThrottle, isObj, kebabcase2CamelCase, mergeStyle, randomColor, removeItem, rgb, rgbToHex, roundNum, sleep, style2obj, throttle, types };
+export { Distance, Enum, MySet, Urlquery, addUnit, arrayToMatrix, capitalize, chinesNum, debounce, distanceUnit, findIndexArr, getLocalStorageSize, getRandomInt, getRandomItem, html2txt, initDebounce, initThrottle, isObj, kebabcase2CamelCase, mergeStyle, pick, randomColor, removeItem, rgb, rgbToHex, roundNum, sleep, style2obj, throttle, types };
