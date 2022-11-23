@@ -1,3 +1,19 @@
+## [1.0.13](https://github.com/boli-duality/you-functions/compare/v1.0.12...v1.0.13) (2022-11-23)
+
+
+### Chores
+
+* 发布流程构建失败，回退 ([aca5f29](https://github.com/boli-duality/you-functions/commit/aca5f29))
+* 更新版本 ([6de2005](https://github.com/boli-duality/you-functions/commit/6de2005))
+* 优化项目配置 ([ff06126](https://github.com/boli-duality/you-functions/commit/ff06126))
+
+
+### Features
+
+* 新增生成CHANGELOG.md功能 ([6b9f847](https://github.com/boli-duality/you-functions/commit/6b9f847))
+
+
+
 ## [1.0.12](https://github.com/boli-duality/you-functions/compare/v1.0.11...v1.0.12) (2022-11-22)
 
 
