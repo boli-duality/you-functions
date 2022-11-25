@@ -1,3 +1,12 @@
+## [1.0.21](https://github.com/boli-duality/you-functions/compare/v1.0.20...v1.0.21) (2022-11-25)
+
+
+### ♻️ Code Refactoring | 代码重构
+
+* 修改package.json的入口路径 ([94a48a4](https://github.com/boli-duality/you-functions/commit/94a48a4))
+
+
+
 ## [1.0.20](https://github.com/boli-duality/you-functions/compare/v1.0.19...v1.0.20) (2022-11-25)
 
 
