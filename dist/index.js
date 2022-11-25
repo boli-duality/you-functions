@@ -405,7 +405,7 @@ class MySet {
   }
   // 判断是否存在元素
   has(v) {
-    return !!~this.value.indexOf(v)
+    return this.value.includes(v)
   }
   // 添加元素
   add(v) {
@@ -428,7 +428,7 @@ class MySet {
   }
   // 单选必选一个
   radio(v) {
-    this.value.splice(0, this.value.length, v);
+    if (!this.value.includes(v)) this.value.splice(0, this.value.length, v);
   }
   // 单选可不选
   radioToggle(v) {
