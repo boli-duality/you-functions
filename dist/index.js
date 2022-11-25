@@ -419,7 +419,8 @@ class MySet {
   }
   // 多选必选一个
   check(v) {
-    if (this.size > 1) this.delete(v, this.add(v));
+    const index = this.add(v);
+    if (this.size > 1) this.delete(v, index);
   }
   // 多选可不选
   checkToggle(v) {

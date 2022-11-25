@@ -1,3 +1,12 @@
+## [1.0.22](https://github.com/boli-duality/you-functions/compare/v1.0.21...v1.0.22) (2022-11-25)
+
+
+### 🐛 Bug Fixes | Bug 修复
+
+* 修复MySet.prototype.check方法在没有默认值时无法运作的问题 ([ceb4149](https://github.com/boli-duality/you-functions/commit/ceb4149))
+
+
+
 ## [1.0.21](https://github.com/boli-duality/you-functions/compare/v1.0.20...v1.0.21) (2022-11-25)
 
 
