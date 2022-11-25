@@ -353,11 +353,11 @@ export class MySet {
     return !!~i && this.value.splice(i, 1)
   }
   // 多选必选一个
-  checked(v) {
+  check(v) {
     if (this.size > 1) this.delete(v, this.add(v))
   }
   // 多选可不选
-  checkedToggle(v) {
+  checkToggle(v) {
     this.delete(v, this.add(v))
   }
   // 单选必选一个
