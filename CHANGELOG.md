@@ -1,3 +1,12 @@
+## [1.0.20](https://github.com/boli-duality/you-functions/compare/v1.0.19...v1.0.20) (2022-11-25)
+
+
+### ♻️ Code Refactoring | 代码重构
+
+* 将MySet类的checked原型方法更名为check ([6b7f9aa](https://github.com/boli-duality/you-functions/commit/6b7f9aa))
+
+
+
 ## [1.0.19](https://github.com/boli-duality/you-functions/compare/v1.0.18...v1.0.19) (2022-11-23)
 
 
