@@ -3,32 +3,36 @@ import initThrottle from './initThrottle' // 初始化throttle
 
 /**
  * JSON深拷贝
- * @param {Object} obj 需要深拷贝的对象
- * @returns {Object}   JSON深拷贝后的新对象
+ * @param {object} obj 需要深拷贝的对象
+ * @returns {object}   JSON深拷贝后的新对象
  */
 export const copy = obj => JSON.parse(JSON.stringify(obj))
 
 /**
  * 将角度转换成弧度
- * @param {Number|String} v 角度
- * @returns 弧度
+ * @param {number|string} v 角度
+ * @returns {number} 弧度
  */
 export const rad = v => (v * Math.PI) / 180
 
 /**
  * 判断数据类型
- * @param {Any} data 需要判断类型的数据
- * @returns {String} 数据类型
+ * @param {any} data 需要判断类型的数据
+ * @returns {string} 数据类型
  */
 export const types = data => Object.prototype.toString.call(data).slice(8, -1).toLowerCase()
 
-// 判断是否是对象类型
+/**
+ * 判断是否是对象类型
+ * @param {any} data 数据
+ * @returns {boolean} 类型字符串
+ */
 export const isObj = data => types(data) === 'object'
 
 /**
  * 首字母大写
- * @param {String} str 单词
- * @returns {String} Capitalize string
+ * @param {string} str 英文单词
+ * @returns {string} Capitalize string
  */
 export const capitalize = str => {
   if (typeof str !== 'string') return ''
@@ -37,6 +41,8 @@ export const capitalize = str => {
 
 /**
  * 中横线转大驼峰 kebab-case to CamelCase
+ * @param {string} str 英文单词
+ * @returns {string} 大驼峰英文单词
  */
 export const kebabcase2CamelCase = str =>
   str
@@ -46,17 +52,17 @@ export const kebabcase2CamelCase = str =>
 
 /**
  * 删除数组中的元素
- * @param {Array} arr 数组
- * @param {Any} item 数组中的元素
- * @param {Number} index 数组中元素的索引
- * @returns 由删除元素组成的新数组
+ * @param {array} arr 数组
+ * @param {any} item 数组中的元素
+ * @param {number} index 数组中元素的索引
+ * @returns {array} 由删除元素组成的新数组
  */
 export const removeItem = (arr, item, index = arr.indexOf(item)) => !!~index && arr.splice(index, 1)
 
 /**
  * 给距离添加单位
- * @param {String|Number} v 需要加单位的值
- * @returns 加了单位的值
+ * @param {string|number} v 需要加单位的值
+ * @returns {string} 加了单位的值
  */
 export const distanceUnit = v => {
   if (isNaN(v)) return v
@@ -70,8 +76,8 @@ export const distanceUnit = v => {
 }
 /**
  * 自动给没加单位的值加上rpx
- * @param {String|Number} v 需要加单位的值
- * @returns 加了rpx的值
+ * @param {string|number} v 需要加单位的值
+ * @returns {string} 加了单位的值
  */
 export const addUnit = (v, unit = 'rpx') => (isNaN(v) ? v : v + unit)
 
@@ -88,16 +94,18 @@ export const debounce = initDebounce()
  */
 export const throttle = initThrottle()
 
-// 获取距离的一系列方法
+/**
+ * 获取距离的一系列方法
+ */
 export class Distance {
   static EARTH_RADIUS = 6378137 // 地球半径 单位 M
   constructor() {}
   /**
    * 获取两个坐标之间的距离
-   * @param {Object} coord1                       坐标1
-   * @param {Object} coord2                       坐标2
-   * @property {Number|String} longitude of coord 经度
-   * @property {Number|String} latitude of coord  纬度
+   * @param {object} coord1                       坐标1
+   * @param {object} coord2                       坐标2
+   * @property {number|string} longitude of coord 经度
+   * @property {number|string} latitude of coord  纬度
    * @returns 当前位置到目的地的距离
    */
   static getDistance(coord1, coord2) {
@@ -127,9 +135,9 @@ export class Distance {
   /**
    * 获取当前定位位置到目的地的距离
    * @description 适合在只需要获取一次的时候，快捷使用，如果大量使用此方法，每次都会调用定位方法，消耗大量资源
-   * @param {Object} aim                        目的地坐标
-   * @property {Number|String} longitude of aim 当前位置经度
-   * @property {Number|String} latitude of aim  当前位置纬度
+   * @param {object} aim                        目的地坐标
+   * @property {number|string} longitude of aim 当前位置经度
+   * @property {number|string} latitude of aim  当前位置纬度
    * @returns 当前位置到目的地的距离
    */
   static async from(aim) {
@@ -141,8 +149,8 @@ export class Distance {
 
 /**
  * CSS样式字符串转对象
- * @param {String} styleStr CSS样式字符串
- * @returns {Object} 样式对象
+ * @param {string} styleStr CSS样式字符串
+ * @returns {object} 样式对象
  */
 export const style2obj = styleStr => {
   if (isObj(styleStr)) return JSON.copy(styleStr) // 如果是对象直接返回
@@ -157,15 +165,17 @@ export const style2obj = styleStr => {
   return JSON.copy(styleObj)
 }
 
-// Urlquery 对url参数的一系列方法
+/**
+ * Urlquery 对url参数的一系列方法
+ */
 export class Urlquery {
   constructor() {}
   /**
    * url参数字符串转对象
-   * @param {String} url              需要解析的url字符串
-   * @param {Object} opts             配置选项
-   * @property {Boolean} omit of opts 是否省略值为undefined的参数
-   * @returns {Object} url参数对象
+   * @param {string} url              需要解析的url字符串
+   * @param {object} opts             配置选项
+   * @property {boolean} omit of opts 是否省略值为undefined的参数
+   * @returns {object} url参数对象
    */
   static parse(url, { omit = true } = {}) {
     const index = url.indexOf('?')
@@ -182,10 +192,10 @@ export class Urlquery {
   }
   /**
    * url参数对象转字符串
-   * @param {Object} o url参数对象
-   * @property {Boolean} omit 是否省略值为undefined的参数
-   * @property {String} prefix 前缀
-   * @returns {String} url参数字符串
+   * @param {object} o url参数对象
+   * @property {boolean} omit 是否省略值为undefined的参数
+   * @property {string} prefix 前缀
+   * @returns {string} url参数字符串
    */
   static stringify(o, { prefix = '?', encode = true } = {}) {
     if (typeof o == 'string' && o) return prefix ? prefix + o : o
@@ -208,11 +218,11 @@ export class Urlquery {
   }
   /**
    * 获取指定的url参数
-   * @param {String} url url字符串
-   * @param  {Any} args  参数字段
-   * @returns {String} 指定的url参数字符串
+   * @param {string} url url字符串
+   * @param  {any} args  参数字段
+   * @returns {string} 指定的url参数字符串
    */
-  static getSpecifiedParams(url, ...args) {
+  static getSpecifyParams(url, ...args) {
     const hasProperty = Object.prototype.hasOwnProperty
     let o = this.parse(url)
     let specifiedParams = ''
@@ -224,7 +234,7 @@ export class Urlquery {
 }
 
 /**
- * @description 进行延时，以达到可以简写代码的目的 比如: await uni.y.sleep(20)将会阻塞20ms
+ * 进行延时，以达到可以简写代码的目的 比如: await uni.y.sleep(20)将会阻塞20ms
  * @param {number} value 堵塞时间 单位ms 毫秒
  * @returns {Promise} 返回promise
  */
@@ -232,9 +242,9 @@ export const sleep = (gap = 30) => new Promise(r => setTimeout(() => r(), gap))
 
 /**
  * 一维数组转二维数组
- * @param {Array} arr 一维数组
- * @param {Number} n 子数组的长度
- * @returns 二维数组
+ * @param {array} arr 一维数组
+ * @param {number} n 子数组的长度
+ * @returns {array} 二维数组
  */
 export const arrayToMatrix = (arr, n) => {
   const matrix = []
@@ -248,8 +258,8 @@ export const arrayToMatrix = (arr, n) => {
 
 /**
  * 创建枚举类型
- * @param {Array|Object} E 数据源
- * @returns {Object} 枚举类型
+ * @param {array|object} E 数据源
+ * @returns {object} 枚举类型
  */
 export class Enum {
   index
@@ -277,9 +287,9 @@ export class Enum {
 
 /**
  * 从一个对象中提取需要的属性返回一个新对象
- * @param {Object} obj 源对象
- * @param {Array} keys 需要获取的属性的key
- * @returns
+ * @param {object} obj 源对象
+ * @param {array} keys 需要获取的属性的key
+ * @returns {object} 由需要的熟悉组成的新对象
  */
 export const pick = (obj, keys) => {
   let o = {}
@@ -289,12 +299,12 @@ export const pick = (obj, keys) => {
 
 /**
  * 获取index保存在数组中
- * @param {Array} sourceArr 查找源，从这个数组中中查找目标对象中的值
- * @param {Array} targetArr 查找目标，这个数组中保存的是需要查找的值
- * @param {Object} options 配置项
- * @param {String} targetKey of options 目标属性名
- * @param {String} childKey of options 子数组属性名
- * @returns
+ * @param {array} sourceArr 查找源，从这个数组中中查找目标对象中的值
+ * @param {array} targetArr 查找目标，这个数组中保存的是需要查找的值
+ * @param {object} options 配置项
+ * @param {string} targetKey of options 目标属性名
+ * @param {string} childKey of options 子数组属性名
+ * @returns {array} 找到的索引组成的数组
  */
 export const findIndexArr = (
   sourceArr,
@@ -321,19 +331,21 @@ export const findIndexArr = (
 
 /**
  * html字符串转纯文本
- * @param {String} html html字符串
- * @returns {String} 去除了标签的纯文本内容
+ * @param {string} html html字符串
+ * @returns {string} 去除了标签的纯文本内容
  */
 export const html2txt = html => html.replace(/<[^>]*>/g, '')
 
 /**
- *  合并样式
- * @param  {...String|Object} args 样式字符串或对象
- * @returns 合并后的样式对象
+ * 合并样式
+ * @param  {...string|object} args 样式字符串或对象
+ * @returns {object} 合并后的样式对象
  */
 export const mergeStyle = (...args) => Object.assign({}, ...args.map(v => style2obj(v)))
 
-// Vue中监听不到Set的更新,所以用数组实现一个Set数据结构，从而支持响应式
+/**
+ * Vue中监听不到Set的更新,所以用数组实现一个Set数据结构，从而支持响应式
+ */
 export class MySet {
   constructor() {
     this.value = []
@@ -380,16 +392,25 @@ export class MySet {
   }
 }
 
-// 随机获取数组中的元素
+/**
+ * 随机获取数组中的元素
+ * @param {array} arr 数组
+ * @returns {any} 元素
+ */
 export const getRandomItem = arr => arr[Math.floor(Math.random() * arr.length)]
 
-// 获取随机整数
+/**
+ * 获取随机整数
+ * @param {number} min 最小边界
+ * @param {number} max 最大边界
+ * @returns {number} 整数
+ */
 export const getRandomInt = (min, max) => Math.floor(Math.random() * (max - min + 1) + min)
 
 /**
  * 数字转成汉字
- * @param {String|Number} num 要转换的数字
- * @returns {String} 汉字数字 支持7位，也就是最大1234567
+ * @param {string|number} num 要转换的数字
+ * @returns {string} 汉字数字 支持7位，也就是最大1234567
  * */
 export const chinesNum = num => {
   let changeNum = ['零', '一', '二', '三', '四', '五', '六', '七', '八', '九']
@@ -429,9 +450,9 @@ export const chinesNum = num => {
 
 /**
  * 保留decimal位的四舍五入数字
- * @param {Number} num 需要转换的数字
- * @param {Number} decimal 保留的位数
- * @returns {String} 转换后的数字字符串
+ * @param {number} num 需要转换的数字
+ * @param {number} decimal 保留的位数
+ * @returns {string} 转换后的数字字符串
  */
 export const roundNum = (num, decimal = 2) => {
   let b = Math.pow(10, decimal)
@@ -440,7 +461,7 @@ export const roundNum = (num, decimal = 2) => {
 
 /**
  * 浏览器环境中的获取缓存大小方法
- * @returns {String} 缓存大小数字字符串
+ * @returns {string} 缓存大小数字字符串
  */
 export const getLocalStorageSize = () => {
   let s = window.localStorage
@@ -452,10 +473,16 @@ export const getLocalStorageSize = () => {
   return size
 }
 
-// 随机生成hex
+/**
+ * 随机生成hex
+ * @returns {string} 16进制颜色字符串
+ */
 export const randomColor = () => `#${Math.random().toString(16).slice(2, 6)}`
 
-// 随机生成rgb
+/**
+ * 随机生成rgb
+ * @returns {string} rgb字符串不带rgb前缀 (r,g,b)
+ */
 export const rgb = () => {
   var r = Math.floor(Math.random() * 256)
   var g = Math.floor(Math.random() * 256)
@@ -464,11 +491,34 @@ export const rgb = () => {
   return rgb
 }
 
-// rgb转hex
+/**
+ * rgb转hex
+ * @param {number|string} r
+ * @param {number|string} g
+ * @param {number|string} b
+ * @returns {string} hex
+ */
 export const rgbToHex = (r, g, b) =>
   '#' + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1)
 
 /**
  * 数组去重
+ * @param {array} arr
+ * @returns {array} 去重后的数组
  */
 export const uniqueArr = arr => Array.from(new Set(arr))
+
+/**
+ * 截取指定字符的前/后字符串
+ * @param {string} str 要截取的字符串
+ * @param {string} sign 指定分割的字符串
+ * @param {{to:'left'|'right';handle:'indexOf'|'lastIndexOf'}} options 配置选项
+ * @returns {string} 截取后的字符串
+ */
+export const specifySubstr = (str, sign, { to = 'left', handle = 'indexOf' } = {}, extra) => {
+  const index = str[handle](sign)
+  if (!~index) return ''
+  let param = [0, index]
+  if (to == 'right') param = [index, str.length]
+  return str.substring(...param)
+}
