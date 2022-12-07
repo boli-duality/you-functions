@@ -18,7 +18,7 @@ export const rad = v => (v * Math.PI) / 180
 /**
  * 判断数据类型
  * @param {any} data 需要判断类型的数据
- * @returns {string} 数据类型
+ * @returns {'number'|'string'|'array'|'function'|'null'|'undefined'|'object'|'boolean'} 数据类型
  */
 export const types = data => Object.prototype.toString.call(data).slice(8, -1).toLowerCase()
 
@@ -521,4 +521,36 @@ export const specifySubstr = (str, sign, { to = 'left', handle = 'indexOf' } = {
   let param = [0, index]
   if (to == 'right') param = [index, str.length]
   return str.substring(...param)
+}
+
+/**
+ * 截取指定字符的前/后字符串
+ * @param {string} str 要截取的字符串
+ * @param {string} sign 指定分割的字符串
+ * @param {{to:'left'|'right';handle:'indexOf'|'lastIndexOf'}} options 配置选项
+ * @returns {string} 截取后的字符串
+ */
+export const splitstr = (str, sign, { to = 'left', handle = 'indexOf' } = {}, extra) => {
+  const index = str[handle](sign)
+  if (!~index) return ''
+  let param = [0, index]
+  if (to == 'right') param = [index, str.length]
+  return str.substring(...param)
+}
+
+/**
+ * 安全数组，确保链出来的数组不会因undefined中断程序
+ * @param {object} origin 源对象
+ * @param {string} chain 数据链，一直链到目标数组
+ * @returns {array} 返回一个空数组或者目标数组
+ */
+export const safeArr = function (origin, chain) {
+  const chainArr = chain.split('.')
+  let result
+  for (const key of chainArr) {
+    result = origin[key]
+    if (types(result) != 'object') break
+  }
+  if (!Array.isArray(chain)) return []
+  return result
 }
