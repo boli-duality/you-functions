@@ -79,7 +79,8 @@ export const distanceUnit = v => {
  * @param {string|number} v 需要加单位的值
  * @returns {string} 加了单位的值
  */
-export const addUnit = (v, unit = 'rpx') => (isNaN(v) ? v : v + unit)
+export const addUnit = (v, unit = uni && datatype(uni) == 'object' ? 'rpx' : 'px') =>
+  isNaN(v) ? v : v + unit
 
 export { default as initDebounce } from './initDebounce' // 初始化debounce
 export { default as initThrottle } from './initThrottle' // 初始化throttle
