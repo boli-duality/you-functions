@@ -515,22 +515,7 @@ export const uniqueArr = arr => Array.from(new Set(arr))
  * @param {{to:'left'|'right';handle:'indexOf'|'lastIndexOf'}} options 配置选项
  * @returns {string} 截取后的字符串
  */
-export const specifySubstr = (str, sign, { to = 'left', handle = 'indexOf' } = {}, extra) => {
-  const index = str[handle](sign)
-  if (!~index) return ''
-  let param = [0, index]
-  if (to == 'right') param = [index, str.length]
-  return str.substring(...param)
-}
-
-/**
- * 截取指定字符的前/后字符串
- * @param {string} str 要截取的字符串
- * @param {string} sign 指定分割的字符串
- * @param {{to:'left'|'right';handle:'indexOf'|'lastIndexOf'}} options 配置选项
- * @returns {string} 截取后的字符串
- */
-export const splitstr = (str, sign, { to = 'left', handle = 'indexOf' } = {}, extra) => {
+export const splitstr = (str, sign, { to = 'left', handle = 'indexOf' } = {}) => {
   const index = str[handle](sign)
   if (!~index) return ''
   let param = [0, index]
