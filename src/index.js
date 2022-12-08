@@ -563,3 +563,27 @@ export const logs = (opts, ...args) => {
 export const setLinkIcon = (href, link = document.querySelector('link[rel*="icon"]')) => {
   link.href = href
 }
+
+/**
+ * vue插件
+ * @property install 安装方法 extend:是否扩展原生js, proto:是否扩展Vue原型链
+ */
+export const vuePlugin = {
+  /**
+   * 安装方法
+   * @param {Vue} Vue Vue构造函数
+   * @param {{extend:boolean;proto:boolean}} options 配置选项 extend:是否扩展原生js, proto:是否扩展Vue原型链
+   */
+  install(Vue, { extend = true, proto = true } = {}) {
+    // 原生js扩展
+    if (extend) {
+      JSON.copy = copy
+      console.logs = logs
+    }
+    // 扩展Vue原型链
+    if (proto) {
+      Vue.prototype.$_safeArr = safeArr
+      Vue.prototype.$_addUnit = addUnit
+    }
+  },
+}
