@@ -546,12 +546,12 @@ export const splitstr = (str, sign, { to = 'left', handle = 'indexOf' } = {}, ex
  */
 export const safeArr = function (origin, chain) {
   const chainArr = chain.split('.')
-  let result
+  let result = origin
   for (const key of chainArr) {
-    result = origin[key]
-    if (types(result) != 'object') break
+    result = result[key]
+    if (!(result && typeof result == 'object')) break
   }
-  if (!Array.isArray(chain)) return []
+  if (!Array.isArray(result)) return []
   return result
 }
 
@@ -568,4 +568,13 @@ export const logs = (opts, ...args) => {
     const { label, style } = opts
     console.log(`%c${label}`, style, ...args)
   }
+}
+
+/**
+ * 动态设置网页图标
+ * @param {string} href 资源路径
+ * @param {HTMLLinkElement} link link标签元素
+ */
+export const setLinkIcon = (href, link = document.querySelector('link[rel*="icon"]')) => {
+  link.href = href
 }
