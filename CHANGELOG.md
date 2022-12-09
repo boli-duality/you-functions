@@ -1,3 +1,23 @@
+## [1.0.24](https://github.com/boli-duality/you-functions/compare/v1.0.23...v1.0.24) (2022-12-09)
+
+
+### ✨ Features | 新功能
+
+* 将所有注释换成jsdoc风格;新增specifySubstr方法 ([a40b366](https://github.com/boli-duality/you-functions/commit/a40b366))
+* 新增截取字符串、安全数组方法；修改判断数据类型方法的返回类型 ([2c6675b](https://github.com/boli-duality/you-functions/commit/2c6675b))
+* 新增logs方法 ([095be4a](https://github.com/boli-duality/you-functions/commit/095be4a))
+* 新增setLinkIcon方法；fix: 修复safeArr方法bug ([3d4703d](https://github.com/boli-duality/you-functions/commit/3d4703d))
+* 新增vuePlugin方法，方便在vue中一键安装扩展方法 ([a14146c](https://github.com/boli-duality/you-functions/commit/a14146c))
+
+
+### 🎫 Chores | 其他更新
+
+* 删除重复代码 ([b63f551](https://github.com/boli-duality/you-functions/commit/b63f551))
+* 修复错误 ([8162734](https://github.com/boli-duality/you-functions/commit/8162734))
+* 优化addUnit方法 ([3b89f82](https://github.com/boli-duality/you-functions/commit/3b89f82))
+
+
+
 ## [1.0.23](https://github.com/boli-duality/you-functions/compare/v1.0.22...v1.0.23) (2022-11-25)
 
 
