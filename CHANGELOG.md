@@ -1,3 +1,17 @@
+## [1.0.25](https://github.com/boli-duality/you-functions/compare/v1.0.24...v1.0.25) (2022-12-16)
+
+
+### 🎫 Chores | 其他更新
+
+* 修改jsdoc漏网之鱼 ([dd53e79](https://github.com/boli-duality/you-functions/commit/dd53e79))
+
+
+### 🐛 Bug Fixes | Bug 修复
+
+* 修复addUnit方法bug ([07139fc](https://github.com/boli-duality/you-functions/commit/07139fc))
+
+
+
 ## [1.0.24](https://github.com/boli-duality/you-functions/compare/v1.0.23...v1.0.24) (2022-12-09)
 
 
