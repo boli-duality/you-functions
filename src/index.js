@@ -18,16 +18,16 @@ export const rad = v => (v * Math.PI) / 180
 /**
  * 判断数据类型
  * @param {any} data 需要判断类型的数据
- * @returns {'number'|'string'|'array'|'function'|'null'|'undefined'|'object'|'boolean'} 数据类型
+ * @property {function} object 判断数据类型是否是object
+ * @property {function} array 判断数据类型是否是array
+ * @property {function} null 判断数据类型是否是null
+ * @returns {'number'|'string'|'undefined'|'boolean'|'function'|'null'|'array'|'object'} 数据类型
  */
 export const types = data => Object.prototype.toString.call(data).slice(8, -1).toLowerCase()
 
-/**
- * 判断是否是对象类型
- * @param {any} data 数据
- * @returns {boolean} 类型字符串
- */
-export const isObj = data => types(data) === 'object'
+types.object = data => types(data) == 'object'
+types.array = data => types(data) == 'array'
+types.null = data => types(data) == 'null'
 
 /**
  * 首字母大写
@@ -156,7 +156,7 @@ export class Distance {
  * @returns {object} 样式对象
  */
 export const style2obj = styleStr => {
-  if (isObj(styleStr)) return copy(styleStr) // 如果是对象直接返回
+  if (types.object(styleStr)) return copy(styleStr) // 如果是对象直接返回
   if (styleStr == null) return {} // 如果是null,undefined返回空对象
   if (styleStr.charAt(styleStr.length - 1) == ';') styleStr = styleStr.slice(0, -1)
   const styleArr = styleStr.split(';')
@@ -202,7 +202,7 @@ export class Urlquery {
    */
   static stringify(o, { prefix = '?', encode = true } = {}) {
     if (typeof o == 'string' && o) return prefix ? prefix + o : o
-    if (!isObj(o)) return ''
+    if (!types.object(o)) return ''
     // 处理程序
     let str = ''
     Object.entries(o).forEach(([k, v]) => {
@@ -216,7 +216,7 @@ export class Urlquery {
   }
   // 编码参数，如果是对象或者数组就装成json字符串
   static encodeParam(v) {
-    if (isObj(v) || Array.isArray(v)) v = JSON.stringify(v)
+    if (types.object(v) || Array.isArray(v)) v = JSON.stringify(v)
     return encodeURIComponent(v)
   }
   /**
@@ -269,10 +269,10 @@ export class Enum {
   constructor(E) {
     if (Array.isArray(E)) {
       E.forEach((v, i) => {
-        if (isObj(v)) return Enum.setObjEnum(v, this)
+        if (types.object(v)) return Enum.setObjEnum(v, this)
         this[(this[v] = Enum.getIndex(this) || i)] = v
       })
-    } else if (isObj(E)) Enum.setObjEnum(v, this)
+    } else if (types.object(E)) Enum.setObjEnum(v, this)
     else throw new TypeError('Enum parameter must be Object or Array')
   }
   static setObjEnum(o, instance) {
