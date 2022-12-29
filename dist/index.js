@@ -86,16 +86,16 @@ const rad = v => (v * Math.PI) / 180;
 /**
  * 判断数据类型
  * @param {any} data 需要判断类型的数据
- * @returns {'number'|'string'|'array'|'function'|'null'|'undefined'|'object'|'boolean'} 数据类型
+ * @property {function} object 判断数据类型是否是object
+ * @property {function} array 判断数据类型是否是array
+ * @property {function} null 判断数据类型是否是null
+ * @returns {'number'|'string'|'undefined'|'boolean'|'function'|'null'|'array'|'object'} 数据类型
  */
 const types = data => Object.prototype.toString.call(data).slice(8, -1).toLowerCase();
 
-/**
- * 判断是否是对象类型
- * @param {any} data 数据
- * @returns {boolean} 类型字符串
- */
-const isObj = data => types(data) === 'object';
+types.object = data => types(data) == 'object';
+types.array = data => types(data) == 'array';
+types.null = data => types(data) == 'null';
 
 /**
  * 首字母大写
@@ -221,7 +221,7 @@ class Distance {
  * @returns {object} 样式对象
  */
 const style2obj = styleStr => {
-  if (isObj(styleStr)) return JSON.copy(styleStr) // 如果是对象直接返回
+  if (types.object(styleStr)) return copy(styleStr) // 如果是对象直接返回
   if (styleStr == null) return {} // 如果是null,undefined返回空对象
   if (styleStr.charAt(styleStr.length - 1) == ';') styleStr = styleStr.slice(0, -1);
   const styleArr = styleStr.split(';');
@@ -230,7 +230,7 @@ const style2obj = styleStr => {
     const [k, v] = item.split(':');
     styleObj[k] = v;
   });
-  return JSON.copy(styleObj)
+  return copy(styleObj)
 };
 
 /**
@@ -267,7 +267,7 @@ class Urlquery {
    */
   static stringify(o, { prefix = '?', encode = true } = {}) {
     if (typeof o == 'string' && o) return prefix ? prefix + o : o
-    if (!isObj(o)) return ''
+    if (!types.object(o)) return ''
     // 处理程序
     let str = '';
     Object.entries(o).forEach(([k, v]) => {
@@ -281,7 +281,7 @@ class Urlquery {
   }
   // 编码参数，如果是对象或者数组就装成json字符串
   static encodeParam(v) {
-    if (isObj(v) || Array.isArray(v)) v = JSON.stringify(v);
+    if (types.object(v) || Array.isArray(v)) v = JSON.stringify(v);
     return encodeURIComponent(v)
   }
   /**
@@ -334,10 +334,10 @@ class Enum {
   constructor(E) {
     if (Array.isArray(E)) {
       E.forEach((v, i) => {
-        if (isObj(v)) return Enum.setObjEnum(v, this)
+        if (types.object(v)) return Enum.setObjEnum(v, this)
         this[(this[v] = Enum.getIndex(this) || i)] = v;
       });
-    } else if (isObj(E)) Enum.setObjEnum(v, this);
+    } else if (types.object(E)) Enum.setObjEnum(v, this);
     else throw new TypeError('Enum parameter must be Object or Array')
   }
   static setObjEnum(o, instance) {
@@ -633,18 +633,18 @@ const setLinkIcon = (href, link = document.querySelector('link[rel*="icon"]')) =
 };
 
 /**
- * vue插件
- * @property install 安装方法 extend:是否扩展原生js, proto:是否扩展Vue原型链
+ * vue2插件
+ * @property install 安装方法 extra:是否扩展原生js, proto:是否扩展Vue原型链
  */
-const vuePlugin = {
+const vue2Plugin = {
   /**
    * 安装方法
    * @param {Vue} Vue Vue构造函数
-   * @param {{extend:boolean;proto:boolean}} options 配置选项 extend:是否扩展原生js, proto:是否扩展Vue原型链
+   * @param {{extra:boolean;proto:boolean}} options 配置选项 extra:是否扩展原生js, proto:是否扩展Vue原型链
    */
-  install(Vue, { extend = true, proto = true } = {}) {
+  install(Vue, { extra = true, proto = true } = {}) {
     // 原生js扩展
-    if (extend) {
+    if (extra) {
       JSON.copy = copy;
       console.logs = logs;
     }
@@ -656,4 +656,28 @@ const vuePlugin = {
   },
 };
 
-export { Distance, Enum, MySet, Urlquery, addUnit, arrayToMatrix, capitalize, chinesNum, copy, debounce, distanceUnit, findIndexArr, getLocalStorageSize, getRandomInt, getRandomItem, html2txt, initDebounce, initThrottle, isObj, kebabcase2CamelCase, logs, mergeStyle, pick, rad, randomColor, removeItem, rgb, rgbToHex, roundNum, safeArr, setLinkIcon, sleep, splitstr, style2obj, throttle, types, uniqueArr, vuePlugin };
+/**
+ * vue3插件
+ * @property install 安装方法 extra:是否扩展原生js, proto:是否扩展Vue原型链
+ */
+const vue3Plugin = {
+  /**
+   * 安装方法
+   * @param {Vue} app Vue构造函数
+   * @param {{extra:boolean;proto:boolean}} options 配置选项 extra:是否扩展原生js, proto:是否扩展Vue原型链
+   */
+  install(app, { extra = true, proto = true } = {}) {
+    // 原生js扩展
+    if (extra) {
+      JSON.copy = copy;
+      console.logs = logs;
+    }
+    // 扩展Vue原型链
+    if (proto) {
+      app.config.globalProperties.$_safeArr = safeArr;
+      app.config.globalProperties.$_addUnit = addUnit;
+    }
+  },
+};
+
+export { Distance, Enum, MySet, Urlquery, addUnit, arrayToMatrix, capitalize, chinesNum, copy, debounce, distanceUnit, findIndexArr, getLocalStorageSize, getRandomInt, getRandomItem, html2txt, initDebounce, initThrottle, kebabcase2CamelCase, logs, mergeStyle, pick, rad, randomColor, removeItem, rgb, rgbToHex, roundNum, safeArr, setLinkIcon, sleep, splitstr, style2obj, throttle, types, uniqueArr, vue2Plugin, vue3Plugin };
