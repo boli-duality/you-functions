@@ -568,18 +568,18 @@ export const setLinkIcon = (href, link = document.querySelector('link[rel*="icon
 }
 
 /**
- * vue插件
- * @property install 安装方法 extend:是否扩展原生js, proto:是否扩展Vue原型链
+ * vue2插件
+ * @property install 安装方法 extra:是否扩展原生js, proto:是否扩展Vue原型链
  */
-export const vuePlugin = {
+export const vue2Plugin = {
   /**
    * 安装方法
    * @param {Vue} Vue Vue构造函数
-   * @param {{extend:boolean;proto:boolean}} options 配置选项 extend:是否扩展原生js, proto:是否扩展Vue原型链
+   * @param {{extra:boolean;proto:boolean}} options 配置选项 extra:是否扩展原生js, proto:是否扩展Vue原型链
    */
-  install(Vue, { extend = true, proto = true } = {}) {
+  install(Vue, { extra = true, proto = true } = {}) {
     // 原生js扩展
-    if (extend) {
+    if (extra) {
       JSON.copy = copy
       console.logs = logs
     }
@@ -587,6 +587,30 @@ export const vuePlugin = {
     if (proto) {
       Vue.prototype.$_safeArr = safeArr
       Vue.prototype.$_addUnit = addUnit
+    }
+  },
+}
+
+/**
+ * vue3插件
+ * @property install 安装方法 extra:是否扩展原生js, proto:是否扩展Vue原型链
+ */
+export const vue3Plugin = {
+  /**
+   * 安装方法
+   * @param {Vue} app Vue构造函数
+   * @param {{extra:boolean;proto:boolean}} options 配置选项 extra:是否扩展原生js, proto:是否扩展Vue原型链
+   */
+  install(app, { extra = true, proto = true } = {}) {
+    // 原生js扩展
+    if (extra) {
+      JSON.copy = copy
+      console.logs = logs
+    }
+    // 扩展Vue原型链
+    if (proto) {
+      app.config.globalProperties.$_safeArr = safeArr
+      app.config.globalProperties.$_addUnit = addUnit
     }
   },
 }
