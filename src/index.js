@@ -156,7 +156,7 @@ export class Distance {
  * @returns {object} 样式对象
  */
 export const style2obj = styleStr => {
-  if (isObj(styleStr)) return JSON.copy(styleStr) // 如果是对象直接返回
+  if (isObj(styleStr)) return copy(styleStr) // 如果是对象直接返回
   if (styleStr == null) return {} // 如果是null,undefined返回空对象
   if (styleStr.charAt(styleStr.length - 1) == ';') styleStr = styleStr.slice(0, -1)
   const styleArr = styleStr.split(';')
@@ -165,7 +165,7 @@ export const style2obj = styleStr => {
     const [k, v] = item.split(':')
     styleObj[k] = v
   })
-  return JSON.copy(styleObj)
+  return copy(styleObj)
 }
 
 /**
