@@ -1,3 +1,18 @@
+## [1.0.26](https://github.com/boli-duality/you-functions/compare/v1.0.25...v1.0.26) (2022-12-29)
+
+
+### ✨ Features | 新功能
+
+* 新增vue3Plugin方法 ([25d371a](https://github.com/boli-duality/you-functions/commit/25d371a))
+* types方法扩展了一些易用的方法 ([ab44aba](https://github.com/boli-duality/you-functions/commit/ab44aba))
+
+
+### 🐛 Bug Fixes | Bug 修复
+
+* 修复直接使用JSON.copy的隐患 ([dc72c6b](https://github.com/boli-duality/you-functions/commit/dc72c6b))
+
+
+
 ## [1.0.25](https://github.com/boli-duality/you-functions/compare/v1.0.24...v1.0.25) (2022-12-16)
 
 
