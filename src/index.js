@@ -416,6 +416,7 @@ export const getRandomInt = (min, max) => Math.floor(Math.random() * (max - min 
  * @returns {string} 汉字数字 支持7位，也就是最大1234567
  * */
 export const chinesNum = num => {
+  if (isNaN(num)) return ''
   let changeNum = ['零', '一', '二', '三', '四', '五', '六', '七', '八', '九']
   let unit = ['', '十', '百', '千', '万']
   num = parseInt(num)
