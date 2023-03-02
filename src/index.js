@@ -117,8 +117,9 @@ export class Distance {
       isNaN(coord1.latitude) ||
       isNaN(coord2.longitude) ||
       isNaN(coord2.latitude)
-    )
+    ) {
       console.error('getDistance方法参数错误,请传坐标对象')
+    }
     const La1 = Math.rad(coord1.latitude)
     const La2 = Math.rad(coord2.latitude)
     const La3 = La1 - La2
