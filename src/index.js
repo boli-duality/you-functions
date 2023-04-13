@@ -81,7 +81,7 @@ export const distanceUnit = v => {
  */
 export const addUnit = (
   v,
-  unit = typeof uni != 'undefined' && types(uni) == 'object' ? 'rpx' : 'px'
+  unit = typeof uni != 'undefined' && uni && typeof uni.request == 'function' ? 'rpx' : 'px'
 ) => (isNaN(v) ? v : v + unit)
 
 export { default as initDebounce } from './initDebounce' // 初始化debounce
